@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+    {% if not site.prod %}<meta name="htmx-config" content='{"selfRequestsOnly": false}'>{% endif %}    
+    <link rel="icon" href="{{ site.favicon | default: '/favicon.ico' }}">
+    <title>
+      {%- if title %}{{ title | strip_html | append: ' | ' }}{% endif -%}
+      {{- site.title -}}
+    </title>
+    <meta name="description" content="{{ site.description }}">
+
+    {%- for href in site.styles %}
+      <link rel="stylesheet" href="{{ href | relative_url }}">
+    {%- endfor %}
+    <style>
+      {{ site.inline_styles | join: '\n' }}
+    </style>
+
+    {%- for src in site.scripts %}
+      <script src="{{ src }}" defer></script>
+    {%- endfor %}
+    <script type="module">
+      {{ site.inline_scripts | join: '\n' }}
+    </script>
+
+    {{ content_for_header }}
+    {% include bricks/gtm.liquid %}
+  </head>
+
+  <body>
+    {% include bricks/gtm.liquid for_body=true %}
+    {% assign nav_pages = collections.all | eleventyNavigation | dataNavigation %}
+    {% renderFile 'bricks/_nav' nav_pages %}
+    {{ body }}
+  </body>
+</html>

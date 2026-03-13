@@ -1,0 +1,10 @@
+<nav>
+<ul>
+  {%- for entry in nav_pages -%}
+    {% # prettier-ignore %}
+    <li><a href="{{ entry.url }}" {% if entry.url == current_url %}class="active" aria-current="page"{% endif %}>
+      {{- entry.title -}}
+    </a></li>
+  {%- endfor %}
+</ul>  
+</nav>

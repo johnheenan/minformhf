@@ -1,0 +1,34 @@
+{
+  "name": "Minform",
+  "version": "0.1.0",
+  "description": "Website Template Minimalist Forms",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "do"
+  ],
+  "scripts": {
+    "start": "ELTY_OPTIONS='--input=./site-1' npm -w do run start",
+    "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
+    "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build"
+  },
+  "author": "John Heenan and others",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier-plugin-jinja-template": "^2.1.0",
+    "serve": "^14.2.5"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^4.0.0-alpha.6",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@anydigital/blades": "^0.27.0-alpha.11",
+    "@anydigital/eleventy-blades": "^0.28.0-alpha.7",
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "js-yaml": "^4.1.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "tailwindcss": "^4.1.18"
+  }
+}

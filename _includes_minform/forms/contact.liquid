@@ -1,0 +1,53 @@
+{%- liquid
+  assign target = target | mailformResponseTarget:
+  if not title
+    assign title = "Send Email"
+  endif
+  assign recipient = recipient | default: 1
+  assign required = required | default: "name email message agreed"
+  # urlpath may not be blank if reused
+  if urlpath == blank
+    assign urlpath = site.formpath
+    if site.corsprod or not site.prod
+      assign urlpath = urlpath | prepend: site.corsurl
+    endif
+  endif
+  if urlpath == blank
+    echo "MAIL POST URL IS EMPTY! UNLIKLEY THIS WILL WORK"
+  endif
+-%}
+{% if required contains "email" %}{% assign email_required = "required" %}{% assign email = email | default: "Your Email" %}{% endif %}
+{% if required contains "name" %}{% assign name_required = "required" %}{% assign name = name | default: "Your Name" %}{% endif %}
+{% if required contains "message" %}{% assign message_required = "required" %}{% assign message = message | default: "Your Message" %}{% endif %}
+{% if required contains "agreed" %}{% assign agreed_required = "required" %}{% assign agreed = agreed | default: "Agree with privacy policy?" %}{% endif %}
+<form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}">
+<div class="contact-container">
+  <input type="hidden" name="required" value="{{ required }}" />
+  <input type="hidden" name="subject" value="{{ title }}" />
+  <input type="hidden" name="recipient" value="{{ recipient }}" />
+  <div class="hidden"><label>Botcheck: <input name="botcheck" /></label></div>
+  <div class="hidden"><label>Bottext: <input name="bottext" /></label></div>
+  {% if email %}<label>{{ email }}: <input type="email" name="email" {{ email_required }}></label>{%- endif %}
+  {% if name %}<label>{{ name }}: <input type="text" name="name" {{ name_required }}></label>{% endif %}
+  {% if agreed %}<label>{{ agreed }}: <input type="checkbox" name="agreed" {{ agreed_required }}></label>{% endif %}
+</div>
+  {% if message %}<label>{{ message }}: <textarea name="message" {{ message_required }}></textarea></label>{% endif %}
+<button class="form-button">{{ title }}</button>
+</form>
+{% if target == "internalResponse" %}<div id="internalResponse"></div>{% endif %}
+{%- liquid
+  # clean up globals if file was included instead of rendered
+  if page.rawInput | file_included:
+    assign title=nil
+    assign required=nil
+    assign name=nil
+    assign email=nil
+    assign message=nil
+    assign agreed=nil
+    assign recipient=nil
+    assign name_required=nil
+    assign email_required=nil
+    assign message_required=nil
+    assign agreed_required=nil
+  endif
+-%}
