@@ -1,7 +1,7 @@
 {
-  "name": "Minform",
-  "version": "0.1.0",
-  "description": "Website Template Minimalist Forms",
+  "name": "Minformhf",
+  "version": "0.1.1",
+  "description": "Website template starter with markdown and minimalist forms",
   "private": true,
   "type": "module",
   "workspaces": [

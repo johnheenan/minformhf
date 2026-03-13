@@ -12,7 +12,7 @@ scripts:
   - https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js
 
 footer: |-
-  This is a base template with source at <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a>
+  Please replace replace this website or edit it using <a href="https://github.com/hostfurl/minformhf" target="_blank">Minformhf</a>
 
 #gtm_id: YOUR_GTM_ID # leave empty or as comment if not using
 gtm_id:
@@ -21,6 +21,7 @@ gtm_id:
 corsprod: false
 
 #corsurl: set to server url if using cors, otherwise leave empty or as comment
-corsurl: https://example.com
+# Hostfurl does not permit cors, so leave blank
+corsurl:
 
 formpath: /cgi-bin/mailform.cgi
