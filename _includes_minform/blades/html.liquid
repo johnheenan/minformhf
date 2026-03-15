@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-    {% if not site.prod %}<meta name="htmx-config" content='{"selfRequestsOnly": false}'>{% endif %}    
+    {% if not site.prod %}<meta name="htmx-config" content='{"selfRequestsOnly": false}'>{% endif %}
     <link rel="icon" href="{{ site.favicon | default: '/favicon.ico' }}">
     <title>
       {%- if title %}{{ title | strip_html | append: ' | ' }}{% endif -%}
@@ -26,13 +26,13 @@
     </script>
 
     {{ content_for_header }}
-    {% include bricks/gtm.liquid %}
+    {% include blades/gtm.liquid %}
   </head>
 
   <body>
-    {% include bricks/gtm.liquid for_body=true %}
+    {% include blades/gtm.liquid for_body=true %}
     {% assign nav_pages = collections.all | eleventyNavigation | dataNavigation %}
-    {% renderFile 'bricks/_nav' nav_pages %}
+    {% renderFile 'blades/_nav' nav_pages %}
     {{ body }}
   </body>
 </html>
