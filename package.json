@@ -24,7 +24,7 @@
     "@11ty/eleventy-navigation": "^1.0.5",
     "@anydigital/blades": "^0.27.0-alpha.14",
     "@anydigital/breakout-css": "^0.11.1",
-    "@anydigital/eleventy-blades": "^0.28.0-alpha.7",
+    "@anydigital/eleventy-blades": "^0.28.0-alpha.14",
     "@picocss/pico": "^2.1.1",
     "@tailwindcss/cli": "^4.2.1",
     "markdown-it": "^14.1.0",
