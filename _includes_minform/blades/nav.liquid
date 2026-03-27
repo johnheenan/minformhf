@@ -1,10 +1,16 @@
-<nav>
+<nav class="container">
+<ul>
+<li><a href="/" role="button" class="mw100px{% if current_url == "/" %} secondary" aria-current="page{% endif -%}">
+  {{- title -}}
+</a></li>
+</ul>
 <ul>
   {%- for entry in nav_pages -%}
     {% # prettier-ignore %}
-    <li><a href="{{ entry.url }}" {% if entry.url == current_url %}class="active" aria-current="page"{% endif %}>
+<li><a href="{{ entry.url }}" role="button" class="mw100px
+      {%- if entry.url == current_url %} secondary" aria-current="page{% endif %}">
       {{- entry.title -}}
-    </a></li>
+</a></li>
   {%- endfor %}
-</ul>  
+</ul>
 </nav>

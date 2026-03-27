@@ -12,7 +12,8 @@ scripts:
   - https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js
 
 footer: |-
-  Please replace replace this website or edit it using <a href="https://github.com/hostfurl/minformhf" target="_blank">Minformhf</a>
+  Please replace this website or edit it from source. This version generated from source at <a href="https://github.com/hostfurl/minformhf" target="_blank">Minformhf</a>
+  v{% npm_package_version %}.
 
 #gtm_id: YOUR_GTM_ID # leave empty or as comment if not using
 gtm_id:

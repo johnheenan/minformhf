@@ -7,6 +7,8 @@ Adds usable contact/subscription/unsubscription forms for your hosting sites wit
 
 ## Usage
 
+There is an example of this template in use at https://minformhf.hostfurl.com. There is an example of the base template in use at https://minform.hostfurl.com.
+
 To edit site and upload changes:
 
 - Clone repository or download a release
