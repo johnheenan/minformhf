@@ -25,4 +25,4 @@ corsprod: false
 # Hostfurl does not permit cors, so leave blank
 corsurl:
 
-formpath: /cgi-bin/mailform.cgi
+formpath: /cgi-bin/minform.cgi
