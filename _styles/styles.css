@@ -2,7 +2,6 @@
 @import "@picocss/pico/css/pico.css";
 @import "@anydigital/blades";
 @import "@anydigital/blades/theme";
-@import "@anydigital/breakout-css";
 
 /* Custom styles go below */
 @layer base {
