@@ -1,3 +1,5 @@
+{%- comment %}auto edited file that will be overwritten{% endcomment -%}
+{% comment %}<!--section:code-->```liquid{% endcomment %}
 <!doctype html>
 <html lang="{{ site.lang | default: 'en' }}">
   <head>
@@ -9,10 +11,10 @@
       {%- if title %}{{ title | strip_html | append: ' | ' }}{% endif -%}
       {{- site.title -}}
     </title>
-    <meta name="description" content="{{ site.description }}" blocking=render >
+    <meta name="description" content="{{ site.description | strip_html }}">
 
     {%- for href in site.styles %}
-      <link rel="stylesheet" href="{{ href | relative_url }}">
+      <link rel="stylesheet" href="{{ href | relative_url }}" blocking=render >
     {%- endfor %}
     <style>
       {{ site.inline_styles | join: '\n' }}
@@ -31,8 +33,21 @@
 
   <body>
     {% include blades/gtm.liquid for_body=true %}
+
     {% assign nav_pages = collections.all | eleventyNavigation | dataNavigation %}
     {% renderFile 'blades/_nav' nav_pages %}
     {{ body }}
   </body>
 </html>
+{% comment %}```
+<!--section:docs-->
+Usage in Liquid layout:
+
+```liquid
+{% capture body %}...{% endcapture %}
+
+{% include blades/html.liquid %}
+```
+
+Living example: https://github.com/anyblades/bladeswitch/blob/main/_includes/default.liquid
+<!--section-->{% endcomment %}

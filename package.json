@@ -1,6 +1,6 @@
 {
   "name": "Minformhf",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Website template starter with markdown and minimalist forms for Hostfurl",
   "private": true,
   "type": "module",
@@ -11,7 +11,9 @@
     "start": "ELTY_OPTIONS='--input=./site-1' npm -w do run start",
     "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
     "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build",
-    "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html"
+    "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html",
+    "syncblades": "node ./minform/syncblades.js",
+    "postinstall": "npm run syncblades"
   },
   "author": "John Heenan and others",
   "license": "MIT",

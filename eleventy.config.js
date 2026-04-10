@@ -6,7 +6,7 @@ import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 
 /* Minform */
-import minformConfig from "./minform.config.js";
+import minformConfig from "./minform/minform.config.js";
 
 /**
  * Eleventy Configuration

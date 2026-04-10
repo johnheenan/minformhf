@@ -1,10 +1,10 @@
 {% extends 'blades/html.njk' %}
 
 {% block body %}
-  <main>
-    <article class="prose lg:prose-xl xl:prose-2xl breakout-all">{{ content | safe }}</article>
+  <main class="container breakout-all">
+      {{ content | safe }}
   </main>
-  <footer class="prose">
+  <footer>
     <hr />
     {{ site.footer | renderContent('njk,md', site) | safe }}
   </footer>
