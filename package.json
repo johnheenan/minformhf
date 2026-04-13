@@ -12,7 +12,7 @@
     "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
     "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build",
     "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html",
-    "syncblades": "node ./minform/syncblades.js",
+    "syncblades": "./minform/syncblades.js",
     "postinstall": "npm run syncblades"
   },
   "author": "John Heenan and others",
