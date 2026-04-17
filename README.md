@@ -27,13 +27,18 @@ To edit site and upload changes:
 
 ## Prerequesites
 
-Basically node/npm for a non root user with `/bin/sh` pre-installed.
+Basically node/npm for a non root user with `sh` or symbolic link from `sh`, pre-installed.
 
-If you have command interpreter `/bin/sh`  (or symbolic link to), then `npm` from `node` will use this for POSIX shell operations.
+If you have command interpreter `sh` in `$PATH`, then the `npm run` script will use this for POSIX shell operations.
 
-A POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm` is required.
+What is required is a POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm`.
 
-So, any desktop/laptop/server OS with a Linux kernel, macOS, Windows with WSL, any mobile or tablet OS with app which supports a POSIX compliant shell, any embedded system with Busybox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
+So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox and a way to install packages, such as with `curl` and piping to `sh`, such as with
+```sh
+curl -qL https://www.npmjs.com/install.sh | sh
+```
+
+as documented at [npm Direct Download](https://github.com/npm/cli#direct-download), which downloads and installs npm with node bundled.
 
 What is not supported is Windows using `cmd` for `npm run`. Install WSL if using Windows.
 
@@ -43,7 +48,9 @@ While `git` is not required, it is expected for advanced use.
 
 Never install and run node/npm for user root. This may not be practical for embedded systems.
 
+### Technical Details for `ln`, `rm` and other POSIX script commands
 
+Please see [Minform Technical Details](https://github.com/johnheenan/minform#technical-details-for-ln-rm-and-other-posix-script-commands)
 
 ## Further details
 
