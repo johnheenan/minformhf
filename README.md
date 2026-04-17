@@ -45,16 +45,7 @@ Never install and run node/npm for user root. This may not be practical for embe
 
 ### Technical Details for `ln`, `rm` and other POSIX script commands
 
-Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` for additional script commands.
-
-Typically a node script will have `#!/usr/bin/env node` as first line. 
-
-Typically, in a non server user shell, node executes as a shell launched binary to run npm and other node scripts. Hence, the node launched `npm run` script further uses sh to launch and execute POSIX scripts.
-
-On Debian this will find `/usr/bin/sh`, a symbolic link to POSIX compliant shell dash at `/usr/bin/dash`, of size 127KB. This shell executes POSIX scripts.
-
-On Debian, currently `node` itself as a binary has a size of 117MB, nearly a 1000 times larger than `dash`.
-
+Please see [Minform Technical Details](https://github.com/johnheenan/minform#technical-details-for-ln-rm-and-other-posix-script-commands)
 
 ## Further details
 
