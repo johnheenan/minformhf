@@ -1,6 +1,10 @@
+---
+eleventyComputed:
+    summary: "{{ site.description }}"
+---
 # {{ site.title }}
 
-## {{ site.description }}
+## {{ summary }}
 
 
 
