@@ -1,6 +1,6 @@
 {% liquid
   assign mailvar_ = contact | addformurl: formurl
-  renderFile '_includes_minform/forms/contact.liquid' mailvar_
+  renderFile '_includes/forms/contact.liquid' mailvar_
   assign mailvar_ = nil
   assign contact = nil
 %}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="90mm"
+   height="90mm"
+   viewBox="0 0 90.000008 90"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="layer1"
+     transform="translate(-127.38821,221.1483)"><path
+       d="m 154.77311,-133.50756 v -34.78866 h -9.73239 v -17.16846 h 9.64337 v -33.69147 h 13.2337 v 85.64859 z m -24.92444,0 v -85.64859 h 13.11501 v 85.64859 z"
+       style="display:inline;fill:#000080;stroke-width:3.73437"
+       aria-label="H" /><path
+       d="m 177.84122,-133.41603 v -85.57258 h 14.31471 v 38.24006 h 13.2136 v 16.83075 h -13.2136 v 30.50177 z m 24.09536,-57.19883 v -11.28503 h -7.5136 v -17.08872 h 21.82831 v 28.37375 z"
+       style="display:inline;fill:#000080;stroke-width:3.8997"
+       aria-label="F" /></g></svg>
