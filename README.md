@@ -58,6 +58,42 @@ curl -qL https://www.npmjs.com/install.sh | sh
 
 Please see [Minform Technical Details](https://github.com/johnheenan/minform#technical-details-for-ln-rm-and-other-posix-script-commands)
 
+##  Development and Production Versions
+
+`npm run start` will allow you to develop and view changes as you make them. `site.prod` is false.
+
+`npm run build` generates a production build  in `_sites`. `site.prod` is true
+
+`npm run stage` allows the production build to be viewed locally.
+
+## Using rsync to upload production builds
+
+### Uploading from command line with progress view
+
+If `user` is your SSH login name, `my.example.com` is your DNS site name and `public_html` is the directory off your home directory to upload
+
+You can put a SSH public key in `~/.ssh/authorized_keys` to avoid using a password.
+
+To upload new files or change existing files incrementally:
+```
+rsync _site/ -azvh user@my.example.com:public_html
+```
+
+To also delete files remotely that were deleted locally:
+
+```
+rsync _site/ -azvh --delete user@my.example.com:public_html
+
+```
+If you need to use an absolute directory path then include `/` at the start of the path after `:`, such as:
+```
+rsync _site/ -azvh user@my.example.com:/home/user/public_html
+```
+
+### Uploading from a GitHub Action
+
+An up to date and poular GitHub Action for rsync depolyment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
+
 ## Further details
 
 [Minformhf](https://github.com/hostfurl/minformhf) is a tailored version of [Minform](https://github.com/johnheenan/minform) specifically for Hostfurl.
