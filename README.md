@@ -76,11 +76,13 @@ Please see [Minform Technical Details](https://github.com/johnheenan/minform#tec
 
 The Hostfurl shell and a separate open-source CMS, convenient non shell users, are solutions for remote editing lag
 
-Hostfurl encourages web site development on a local standard shell (on a desktop, tablet or mobile) as a solution for remote customers and poor quality Internet connection. This provides a solution for frustating editing lag from remote high lag and poor quality Internet connections. Finished edits are uploaded incrementally.
+Hostfurl encourages web site development on a local standard shell (on a desktop, tablet or mobile) as a solution for remote customers and poor quality Internet connection. This provides a solution for frustrating editing lag from remote high lag and poor quality Internet connections. Finished edits are uploaded incrementally.
 
-Hostfurl also encourages use of of integrated CMS for easy browser based editing of pre setup web sites (examples to be provided). Hence admins can setup CMS editable web sites for their users. The CMS is a web app that provides a wrapper for a Git service workflow, that must be setup by an admin.
+Hostfurl also encourages use of of integrated CMS for easy browser based editing of pre setup web sites (examples to be provided). Hence admins can setup CMS editable web sites for their users. The CMS is a web app that provides a wrapper for a Git service workflow, triggered when editing finished, that must be setup by an admin.
 
-All customer servers include access to a limited secure shell to support access with ssh and remote updates with rsync. The shell includes basic shell commands with sh and bash, rsync, curl, wget, ping, nano (an editor) and Midnight Commander file explorer (without dropping to shell with `Ctrl + O`). The remote shell does not include git and node/npm because it is not consistent with practices we encourage. All this fits under 60MB and adds to the used quota. While further binaries can be uploaded, it is discouraged and there is no convenient packaging system made available.
+All customer servers include access to a limited secure shell to support access with ssh and remote updates with rsync. The shell includes basic shell commands with sh and bash, rsync, curl, wget, ping, nano (an editor) and mc (Midnight Commander file explorer but without dropping to shell with `Ctrl + O`). The remote shell does not include git and node/npm because it is not consistent with practices we encourage. 
+
+All this fits under 60MB and adds to the used quota because each customer admin gets their own isolated process space and copy of binaries. While further binaries can be uploaded, it is discouraged and there is no convenient packaging system made available. Each owned (sub) server files of an admin, no matter what the domain name is, can be found in the `domains` directory of the shell.
 
 
 ##  Development and Production Versions
