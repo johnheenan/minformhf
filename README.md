@@ -44,15 +44,29 @@ While `git` is not required, it is expected for advanced use.
 
 Never install and run node/npm for user root. This may not be practical for embedded systems.
 
-### Installation of node/npm
+### OS independent installation of node/npm
 
 There are a variety of methods supported by OS distributions and version software.
 
-An OS independent method to install up to date node/npm is to use curl and sh such as documented at [npm Direct Download](https://github.com/npm/cli#direct-download), which downloads and installs npm with node bundled.
+A cross platform, OS independent, method to install up to date node/npm is to use curl and sh such as documented at [Download Node.js®](https://nodejs.org/en/download), which downloads and installs node with npm bundled.
 
-```sh
-curl -qL https://www.npmjs.com/install.sh | sh
+### Installation of node/npm on Termux for Android
+
+Termux emulates a Debian distribution on Android. A standard installation of a desktop or server OS will include prerequisites such as curl and git.
+
+With a fresh Termux installation on Android:
+
 ```
+pkg update
+pkg upgrade
+pkg install curl git -y
+```
+
+Either use
+```
+pkg install nodejs-lts -y
+```
+or, to help keep more up to date versions of node/npm, use [Download Node.js®](https://nodejs.org/en/download)
 
 ### Technical Details for `ln`, `rm` and other POSIX script commands
 
@@ -83,16 +97,29 @@ To also delete files remotely that were deleted locally:
 
 ```
 rsync _site/ -azvh --delete user@my.example.com:public_html
-
 ```
 If you need to use an absolute directory path then include `/` at the start of the path after `:`, such as:
 ```
 rsync _site/ -azvh user@my.example.com:/home/user/public_html
 ```
 
+The included `-v` option shows files uploaded. Add in `--progress` to show progress of individual files. For files that already exist, incremental deltas of files are uploaded, not the full file.
+
+After a rebuild, files will change due to cache busting, even with no content change. Rsync effciently finds, includes and uploads these changes without including the full file.
+
+With heavy editing of sites with many files, consider turning off cache busting and turning on again when finished with final edit. If turning off cache busting, do not include `--delete` with rsync until cache busting is turned on again.
+
+To turn off cache busting, comment out line
+```
+  eleventyConfig.addPlugin(eleventyAutoCacheBuster);
+```
+near start in `minform/minform.config.js` with `//` at start of line.
+
+Depending on web server, turning off cache busting may prevent site updates from being viewed immediately with a browser refresh, unless a hard refresh or cache emptying with hard refresh is used.
+
 ### Uploading from a GitHub Action
 
-An up to date and poular GitHub Action for rsync depolyment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
+An up to date and popular GitHub Action for rsync deployment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
 
 ## Further details
 
